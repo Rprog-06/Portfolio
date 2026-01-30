@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSA & OOP MCQ Test - Programming Assessment</title>
+    <link rel="stylesheet" href="test-styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="test-container">
+        <!-- Header -->
+        <header class="test-header">
+            <div class="header-content">
+                <h1><i class="fas fa-code"></i> DSA & OOP Assessment</h1>
+                <div class="test-info">
+                    <span class="difficulty">Medium to Hard</span>
+                    <span class="duration">Duration: 45 minutes</span>
+                </div>
+            </div>
+            <div class="timer-container">
+                <div class="timer">
+                    <i class="fas fa-clock"></i>
+                    <span id="timer">45:00</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressBar"></div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Test Instructions -->
+        <div class="instructions" id="instructions">
+            <div class="instructions-content">
+                <h2><i class="fas fa-info-circle"></i> Test Instructions</h2>
+                <ul>
+                    <li>This test contains 20 multiple-choice questions covering Data Structures & Algorithms and Object-Oriented Programming</li>
+                    <li>Each question has 4 options with only one correct answer</li>
+                    <li>Questions are of medium to hard difficulty level</li>
+                    <li>Time limit: 45 minutes</li>
+                    <li>You can navigate between questions using the navigation panel</li>
+                    <li>Your answers are automatically saved</li>
+                    <li>Click "Submit Test" when you're ready to see your results</li>
+                </ul>
+                <button class="btn btn-primary" onclick="startTest()">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Test Content -->
+        <div class="test-content" id="testContent" style="display: none;">
+            <!-- Question Navigation -->
+            <div class="question-nav">
+                <h3>Questions</h3>
+                <div class="nav-grid" id="questionNavGrid">
+                    <!-- Navigation buttons will be generated here -->
+                </div>
+                <div class="nav-stats">
+                    <div class="stat">
+                        <span class="stat-label">Answered:</span>
+                        <span class="stat-value" id="answeredCount">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Remaining:</span>
+                        <span class="stat-value" id="remainingCount">20</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question Panel -->
+            <div class="question-panel">
+                <div class="question-header">
+                    <span class="question-number" id="questionNumber">Question 1 of 20</span>
+                    <span class="question-category" id="questionCategory">Data Structures</span>
+                </div>
+                
+                <div class="question-content">
+                    <div class="question-text" id="questionText">
+                        <!-- Question will be loaded here -->
+                    </div>
+                    
+                    <div class="code-block" id="codeBlock" style="display: none;">
+                        <!-- Code snippets will be shown here -->
+                    </div>
+                    
+                    <div class="options-container" id="optionsContainer">
+                        <!-- Options will be loaded here -->
+                    </div>
+                </div>
+                
+                <div class="question-controls">
+                    <button class="btn btn-secondary" id="prevBtn" onclick="previousQuestion()" disabled>
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <button class="btn btn-secondary" id="nextBtn" onclick="nextQuestion()">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <button class="btn btn-success" id="submitBtn" onclick="submitTest()" style="display: none;">
+                        <i class="fas fa-check"></i> Submit Test
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Panel -->
+        <div class="results-panel" id="resultsPanel" style="display: none;">
+            <div class="results-header">
+                <h2><i class="fas fa-trophy"></i> Test Results</h2>
+            </div>
+            
+            <div class="score-summary">
+                <div class="score-circle">
+                    <div class="score-value" id="scoreValue">0%</div>
+                    <div class="score-label">Overall Score</div>
+                </div>
+                
+                <div class="score-details">
+                    <div class="score-item">
+                        <span class="label">Correct Answers:</span>
+                        <span class="value" id="correctAnswers">0/20</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="label">Time Taken:</span>
+                        <span class="value" id="timeTaken">00:00</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="label">DSA Score:</span>
+                        <span class="value" id="dsaScore">0/10</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="label">OOP Score:</span>
+                        <span class="value" id="oopScore">0/10</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="performance-analysis">
+                <h3>Performance Analysis</h3>
+                <div class="analysis-content" id="analysisContent">
+                    <!-- Performance analysis will be generated here -->
+                </div>
+            </div>
+            
+            <div class="detailed-results">
+                <h3>Detailed Results</h3>
+                <div class="results-list" id="detailedResults">
+                    <!-- Detailed question-wise results will be shown here -->
+                </div>
+            </div>
+            
+            <div class="results-actions">
+                <button class="btn btn-primary" onclick="retakeTest()">
+                    <i class="fas fa-redo"></i> Retake Test
+                </button>
+                <button class="btn btn-secondary" onclick="reviewAnswers()">
+                    <i class="fas fa-eye"></i> Review Answers
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="test-script.js"></script>
+</body>
+</html>
